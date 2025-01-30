@@ -3,44 +3,192 @@
 <head>
     <title>$404 Coin - Error 404: Gains Found</title>
     <style>
-        body { 
-            background: #000; 
-            color: #fff; 
-            font-family: Arial; 
+        :root {
+            --neon-green: #14F195;
+            --neon-purple: #BC00FF;
+            --cyber-blue: #00f3ff;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
             text-align: center;
             padding: 20px;
+            overflow-x: hidden;
+            position: relative;
         }
-        .logo { width: 200px; }
-        a { 
-            color: #14F195; /* Solana green */
-            text-decoration: none;
+
+        /* Subtle background glitch effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 95%,
+                rgba(20, 241, 149, 0.1) 95%
+            );
+            animation: glitch-bg 2s infinite linear;
+            z-index: -1;
+            opacity: 0.3;
         }
-        .contract {
-            background: #222;
-            padding: 10px;
-            border-radius: 5px;
-            word-break: break-all;
+
+        /* Cyber grid background */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(20, 241, 149, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 241, 149, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -2;
+            animation: grid-scroll 20s linear infinite;
+        }
+
+        .logo {
+            width: 200px;
+            filter: drop-shadow(0 0 15px var(--neon-green));
+            margin: 20px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 15px var(--neon-green);
+            margin: 20px 0;
+            position: relative;
+            animation: text-flicker 3s infinite;
+        }
+
+        .cyber-border {
+            border: 2px solid var(--neon-green);
+            padding: 20px;
+            margin: 20px auto;
             max-width: 600px;
-            margin: 0 auto;
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(20, 241, 149, 0.3);
+        }
+
+        .cyber-border::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                var(--neon-green),
+                transparent
+            );
+            z-index: -1;
+            animation: border-glow 2s linear infinite;
+        }
+
+        a {
+            color: var(--neon-green);
+            text-decoration: none;
+            padding: 5px 10px;
+            position: relative;
+            transition: 0.3s all ease;
+        }
+
+        a:hover {
+            text-shadow: 0 0 15px var(--neon-green);
+            transform: scale(1.05);
+        }
+
+        .contract {
+            background: rgba(20, 241, 149, 0.1);
+            padding: 15px;
+            border-radius: 4px;
+            word-break: break-all;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 15px rgba(20, 241, 149, 0.2);
+        }
+
+        @keyframes glitch-bg {
+            0% { transform: translate(0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(1px, -1px); }
+            60% { transform: translate(-1px, -1px); }
+            80% { transform: translate(1px, 1px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes text-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        @keyframes grid-scroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+
+        @keyframes border-glow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Subtle image glitch */
+        .glitch-image {
+            animation: image-glitch 5s infinite;
+        }
+
+        @keyframes image-glitch {
+            0% { transform: translate(0); }
+            95% { transform: translate(0); }
+            96% { transform: translate(2px, -1px); }
+            97% { transform: translate(-1px, 1px); }
+            98% { transform: translate(0); }
         }
     </style>
 </head>
 <body>
     <img src="404-robot-logo.png" class="logo" alt="$404 Logo">
-    <h1>Error 404: Gains Found</h1>
-    <p>The lost robot of Solana. $404 shouldn’t exist… but it does.</p>
-    
-    <h2>📈 Buy $404</h2>
-    <a href="https://pump.fun/coin/4oiWrSecUMhLeAeLRJc9ibA2XbQUFhzoDLPpScR7pump">Buy on Pump.fun</a>
-    
-    <h2>📝 Contract</h2>
-    <div class="contract">4oiWrSecUMhLeAeLRJc9ibA2XbQUFhzoDLPpScR7pump</div>
-    
-    <h2>🤖 Join the Error</h2>
-    <a href="https://t.me/sola404coin">Telegram</a> | 
-    <a href="https://x.com/404_solanas">Twitter/X</a>
-    
-    <h2>🚨 Meme Zone</h2>
-    <img src="404-meme.png" width="300" alt="404 meme">
+    <div class="cyber-border">
+        <h1>ERROR 404: GAINS FOUND</h1>
+        <p>The rogue AI that breached Solana's blockchain</p>
+        
+        <h2>📈 ACQUIRE $404</h2>
+        <a href="https://pump.fun/coin/4oiWrSecUMhLeAeLRJc9ibA2XbQUFhzoDLPpScR7pump">INITIATE PURCHASE</a>
+        
+        <h2>📝 BLOCKCHAIN PROTOCOL</h2>
+        <div class="contract">4oiWrSecUMhLeAeLRJc9ibA2XbQUFhzoDLPpScR7pump</div>
+        
+        <h2>🤖 JOIN THE NETWORK</h2>
+        <a href="https://t.me/sola404coin">TELEGRAM CHANNEL</a> | 
+        <a href="https://x.com/404_solanas">X/TWITTER</a>
+        
+        <h2>🚨 MEME DATABASE</h2>
+        <img src="404-meme.png" class="glitch-image" width="300" alt="404 meme">
+    </div>
+
+    <script>
+        // Add random glitch intensity
+        function updateGlitch() {
+            document.documentElement.style.setProperty(
+                '--neon-green',
+                `hsl(${Math.random() * 20 + 160}, 90%, 60%)`
+            );
+            requestAnimationFrame(updateGlitch);
+        }
+        updateGlitch();
+    </script>
 </body>
 </html>
